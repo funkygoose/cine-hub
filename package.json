@@ -16,6 +16,7 @@
     "mongoose": "^8.3.2",
     "next": "14.2.1",
     "next-auth": "^4.24.7",
+    "node-fetch": "^2.7.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
