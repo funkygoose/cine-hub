@@ -11,6 +11,7 @@ const MovieCard = ({ movie }: {movie: Movie}) => {
           }`}
         className='thumbnail' 
         alt={movie?.title || movie?.name} />
+        <div className="border"></div>
     </div>
   )
 }
