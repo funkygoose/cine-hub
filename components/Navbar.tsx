@@ -4,8 +4,10 @@ import { Search } from '@mui/icons-material'
 import Link from 'next/link'
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
+    const router = useRouter();
     const [search, setSearch] = useState<string>("");
     const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
 
@@ -43,7 +45,10 @@ const Navbar = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <Search className="icon" />
+                    <button disabled={search === ""}>
+
+                        <Search className="icon" onClick={() => router.push(`/search/${search}`)} />
+                    </button>
                 </div>
 
                 <img
