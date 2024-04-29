@@ -17,9 +17,8 @@ const HeroCard = ({ trendingMovie }: { trendingMovie: Movie }) => {
       <div className="hero">
         <div className="hero-bg">
           <img
-            src={`${baseImgUrl}${
-              trendingMovie?.backdrop_path || trendingMovie?.poster_path
-            }`}
+            src={`${baseImgUrl}${trendingMovie?.backdrop_path || trendingMovie?.poster_path
+              }`}
             alt="trending-movie"
             className="hero-bg-image"
           />
@@ -42,7 +41,7 @@ const HeroCard = ({ trendingMovie }: { trendingMovie: Movie }) => {
         </div>
       </div>
 
-      {/* {showModal && <Modal movie={trendingMovie} closeModal={closeModal} />} */}
+      {showModal && <Modal movie={trendingMovie} closeModal={closeModal} />}
     </>
   );
 };
