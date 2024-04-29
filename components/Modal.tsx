@@ -1,6 +1,7 @@
 'use client'
 
 import { Movie, Video } from '@lib/types'
+import { CancelRounded } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 
 interface Props {
@@ -24,7 +25,7 @@ const Modal = ({ movie, closeModal }: Props) => {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/movie/${movie.id}?append_to_response=videos`, options)
             const data = await res.json()
 
-            if(data?.video) {
+            if (data?.videos) {
                 const index = data.videos.results.findIndex((video: Video) => video.type === 'Trailer')
                 setVideo(data.videos.results[index].key)
             }
@@ -40,7 +41,16 @@ const Modal = ({ movie, closeModal }: Props) => {
 
     return (
         <div className='modal'>
-            <button><></></button>
+            <button className='modal-close' onClick={closeModal}>
+                <CancelRounded sx={{ color: "white", fontSize: "35px", ":hover": { color: "red" } }} />
+            </button>
+
+            <iframe
+                src={`https://www.youtube.com/embed/${video}`}
+                className="modal-video"
+                loading="lazy"
+                allowFullScreen
+            />
         </div>
     )
 }
